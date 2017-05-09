@@ -4,16 +4,22 @@
 #include<stdio.h>
 int main()
 {
-	int t,n,i,pr,count;
+	int t,n,i,pr[100002],count,p;
 	scanf("%d",&t);
 	while(t--)
 	{
-		count=1;
+		
 		scanf("%d",&n);
-		for(i=1;i<=n;i++)
+		for(i=0;i<n;i++)
 		{
-			scanf("%d",&pr);
-			if((pr)!= (i-1))
+			scanf("%d",&pr[i]);
+		}
+		count=0;
+		p=0;
+		for(i=n-1;i>=p;i--)
+		{
+			if(pr[i]>p)
+			p=pr[i];
 			count++;
 		}
 		printf("%d\n",count);
