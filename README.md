@@ -7,10 +7,10 @@
 ------------------------------------------------
 ------------------------------------------------
 # GEEKSFORGEEKS 
-Problems From GeeksforGeeks.
+[Problems From GeeksforGeeks.](https://github.com/spdpiyush/Competitive-Programming/tree/master/GEEKSFORGEEKS)
 ------------------------------------------------
 ------------------------------------------------
 # CareerCup
-Problems From The CareerCup.
+[Problems From The CareerCup.](https://github.com/spdpiyush/Competitive-Programming/tree/master/CareerCup)
 ------------------------------------------------
 ------------------------------------------------
