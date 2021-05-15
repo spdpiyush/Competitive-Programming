@@ -16,6 +16,6 @@
 ------------------------------------------------
 
 # LeetCode
-[Problems From The LeetCode.](https://github.com/spdpiyush/Competitive-Programming/tree/master/CareerCup)
+[Problems From The LeetCode.](https://github.com/spdpiyush/Competitive-Programming/tree/master/LeetCode)
 ------------------------------------------------
 ------------------------------------------------
