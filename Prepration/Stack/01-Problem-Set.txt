@@ -1,0 +1,71 @@
+
+
+Problem Set:
+
+	1. Nearest Greater Element to Left.
+	2. Nearest Greater Element to Right. ( Next Largest Element) -> Important 
+	3. Nearest Smaller to Left.
+	4. Nearest Smaller to Right.
+
+
+	So, Basically all of these are Problems are similar with minor Variations.
+	
+	1. Nearest Greater Element to Left : Here we have to find the next Immediate Greater element to the Left Side.
+	
+	Ex : N = 8, arr[] = {10, 3, 0, 1, 15, 0, 2, 4}
+	
+			o/p : {-1, 10, 3, 3, -1, 15, 15, 15 }
+
+	 Approach 1 --> This can be solved in O(n^2) time complexity by running 2 for Loop, where for each element we will run the loop to sear                        ch the nearest greater element on the left side.
+
+		// Code
+		public static int[] nextGreaterToLeft(int[] arr, int size) {
+        	int[] ngl = new int[size];
+        	for (int i = 0; i < size; i++) {
+            	int max = -1;
+            	for (int j = i-1; j >= 0; j--) {
+                	if (arr[j] > arr[i]) {
+                    	max = arr[j];
+                    	break;
+                	}
+            	}
+           		ngl[i] = max;
+        	}
+        	return ngl;
+    	}
+
+    	Time Complexity : O(N ^ 2)
+    	Space Complexity : O(N)
+		
+	 Approach 2 --> By using Stack
+			i. if stack is empty , -1
+			ii. keep poping the elements which are smaller than the current element.
+			iii. print top element of stack if stack not empty else print -1. 
+
+		//Code 
+
+		public int[] nextGreaterToLeft(int[] arr, int size) {
+			int[] ngl = new int[size];
+			Stack<Integer> stack = new Stack<>();
+			for (int i = 0; i < size; i++) {
+				if (!stack.isEmpty()) {
+					while(!stack.isEmpty() && stack.peek() <= arr[i]) {
+						stack.pop();
+					}
+				}
+				ngl[i] = stack.isEmpty() ? -1 : stack.peek();
+				stack.push(arr[i]);
+			}
+			return ngl;
+		}
+
+		Time Complexity : o(N)
+	
+	2. Nearest Greater Element to Right
+	
+	Approach 1 --> Applying the Brute Force.
+
+	Time Complexity --> O( N ^ 2)
+	
+
+		
