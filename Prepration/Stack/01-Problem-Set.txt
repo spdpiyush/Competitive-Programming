@@ -9,6 +9,11 @@ Problem Set:
 
 
 	So, Basically all of these are Problems are similar with minor Variations.
+
+	How to Identify whether in a problem, Stack can be Applied or not.
+
+		i. Having an Array
+		ii. If we apply brute force, it gives o(n^2) time. (i.e more precisely if inner loops depends on outer loop.)
 	
 	1. Nearest Greater Element to Left : Here we have to find the next Immediate Greater element to the Left Side.
 	
@@ -16,7 +21,7 @@ Problem Set:
 	
 			o/p : {-1, 10, 3, 3, -1, 15, 15, 15 }
 
-	 Approach 1 --> This can be solved in O(n^2) time complexity by running 2 for Loop, where for each element we will run the loop to sear                        ch the nearest greater element on the left side.
+	 Approach 1 --> This can be solved in O(n^2) time complexity by running 2 for Loop, where for each element we will run the loop to search the nearest greater element on the left side.
 
 		// Code
 		public static int[] nextGreaterToLeft(int[] arr, int size) {
@@ -63,9 +68,53 @@ Problem Set:
 	
 	2. Nearest Greater Element to Right
 	
-	Approach 1 --> Applying the Brute Force.
+	Approach 1 --> Applying the Brute Force, This can be solved in O(n^2) time complexity by running 2 for Loop, where for each element we will run the loop to search the nearest greater element on the right side.
 
-	Time Complexity --> O( N ^ 2)
+		//code
+		public static int[] nextGreaterToRight(int[] arr, int size) {
+        	int[] ngr = new int[size];
+        	for (int i = 0; i < size; i++) {
+            	int max = -1;
+            	for (int j = i+1; j < size; j++) {
+                	if (arr[j] > arr[i]) {
+                    	max = arr[j];
+                    	break;
+                	}
+            	}
+           		ngr[i] = max;
+        	}
+        	return ngr;
+    	}
+ 
+	    Time Complexity --> O( N ^ 2)
+
+	Approach 2 --> By using Stack
+			i. if stack is empty , -1
+			ii. keep poping the elements which are smaller than the current element.
+			iii. print top element of stack if stack not empty else print -1. 
+			iv. Reverse the answer.
+			
+			//code
+			public int[] nextGreaterToRight(int[] arr, int size) {
+			int[] ngr = new int[size];
+			Stack<Integer> stack = new Stack<>();
+			for (int i = size-1; i >= 0; i--) {
+				if (!stack.isEmpty()) {
+					while(!stack.isEmpty() && stack.peek() <= arr[i]) {
+						stack.pop();
+					}
+				}
+				ngr[i] = stack.isEmpty() ? -1 : stack.peek();
+				stack.push(arr[i]);
+			}
+			return ngr;
+		}
+
+		Time Complexity --> O(N)
+
+
+
+
 	
 
 		
